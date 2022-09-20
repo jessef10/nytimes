@@ -41,4 +41,10 @@ function fetchResults(e) {
   if (endDate.value !== '') {
     url = `${url}&end_date=${endDate.value}`;
   };
+
+  // Use fetch() to make the request to the API
+  fetch(url)
+    .then((response) => response.json())
+    .then((json) => displayResults(json))
+    .catch((error) => console.error(`Error fetching data: ${error.message}`));
 }
